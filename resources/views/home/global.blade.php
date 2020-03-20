@@ -54,34 +54,36 @@
 
     <div class="row">
         <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
+            <div class="card shadow p-3 mb-5 bg-primary text-light rounded">
             <div class="card-body text-center">
-                <h4>{{$summary[0]->confirmed}}</h4>
-                <p>Total Confirmed</p>
+                <h3>{{en2bn($summary[0]->confirmed)}}</h3>
+                <h4>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h4>
+                <br>
             </div>
         </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
+            <div class="card shadow p-3 mb-5 bg-danger text-light rounded">
             <div class="card-body text-center">
-                <h4>{{$summary[0]->deaths}}</h4>
-                <p>Total Deaths</p>
+                <h3>{{en2bn($summary[0]->deaths)}}</h3>
+                <h4>সর্বমোট মৃতের সংখ্যা</h4>
+                <br>
             </div>
         </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
-            <div class="card-body text-center">
-                <h4>{{$summary[0]->recovered}}</h4>
-                <p>Total Recovered</p>
+            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
+                <div class="card-body text-center">
+                    <h3>{{en2bn($summary[0]->recovered)}}</h3>
+                    <h5>সর্বমোট আরোগ্য লাভকারী রোগীর সংখ্যা</h5>
+                </div>
             </div>
         </div>
-        </div>
         <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
+            <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
             <div class="card-body text-center">
-                <h4>{{count($countries)}}</h4>
-                <p>Total Country/Region</p>
+                <h3>{{en2bn(count($countries))}}</h3>
+                <h5>বিশ্বব্যাপী সর্বমোট আক্রান্ত দেশের সংখ্যা</h5>
             </div>
         </div>
         </div>
@@ -92,12 +94,59 @@
             <div id="map" style="width: 100%; height: 530px;"></div>
         </div>
         <div class="col-md-3">
-            <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">আক্রান্ত রোগী</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">মৃত</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu2">আরোগ্য লাভকারী</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active" style="overflow: scroll; height: 500px"><br>
+
+                    @foreach($data as $tab)
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">{{txten2bn($tab->country)}} : <b>{{en2bn($tab->confirmed)}}</b></div>
+                        </div>
+                     @endforeach
+
+                </div>
+                <div id="menu1" class="container tab-pane fade" style="overflow: scroll; height: 500px"><br>
+
+                    @foreach($data as $tab)
+                        <div class="card bg-danger text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">{{txten2bn($tab->country)}} : <b>{{en2bn($tab->deaths)}}</b></div>
+                        </div>
+                    @endforeach
+                </div>
+                <div id="menu2" class="container tab-pane fade" style="overflow: scroll; height: 500px"><br>
+
+                    @foreach($data as $tab)
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">{{txten2bn($tab->country)}} : <b>{{en2bn($tab->recovered)}}</b></div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <canvas id="bdchart"  ></canvas>
         </div>
     </div>
 
@@ -112,11 +161,12 @@
 
         //Global Data
         var jsonFile = {!! $data !!};
+        var displayTotalData = 9;
         var countries=[];
         var confirmed=[];
         var deaths=[];
         var recovered=[];
-        for(var i=0; i<jsonFile.length; i++){
+        for(var i=0; i<displayTotalData; i++){
             countries.push(jsonFile[i].country);
             confirmed.push(jsonFile[i].confirmed);
             deaths.push(jsonFile[i].deaths);
@@ -169,7 +219,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Covid 19 reports'
+                    text: 'করোনা ভাইরাস কোভিড-১৯ বিশ্বব্যাপী বিভিন্ন কেস বিশ্লেষণ'
                 },
                 "animation": {
                     "duration": 1,
@@ -194,18 +244,120 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Persons'
+                            labelString: 'আক্রান্ত ব্যাক্তির সংখ্যা '
                         }
                     }],
                     xAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Countries'
+                            labelString: 'দেশ/এলাকার নাম'
                         }
                     }]
                 }
             }
         });
+
+        //data by time
+        var bdJsonFile = {!! $databydates !!};
+        var batches=[];
+        var bdconfirmed=[];
+        var bddeaths=[];
+        var bdrecovered=[];
+        for(var i=0; i<bdJsonFile.length; i++){
+            batches.push(bdJsonFile[i].batch);
+            bdconfirmed.push(bdJsonFile[i].confirmed);
+            bddeaths.push(bdJsonFile[i].deaths);
+            bdrecovered.push(bdJsonFile[i].recovered);
+        }
+
+        //BD Data
+        var bdctx = document.getElementById('bdchart').getContext('2d');
+        var bdchart = new Chart(bdctx, {
+
+
+            // The type of chart we want to create
+            type: 'line', // also try bar or other graph types
+
+            // The data for our dataset
+            data: {
+                labels:batches,
+                // Information about the dataset
+                datasets: [{
+                    label: "Confirmed",
+                    backgroundColor: 'blue',
+                    borderColor: 'royalblue',
+                    fill: false,
+                    data: bdconfirmed,
+                },
+                    {
+                        label: "Death",
+                        backgroundColor: 'red',
+                        borderColor: 'red',
+                        fill: false,
+                        data: bddeaths,
+                    },
+                    {
+                        label: "Recovered",
+                        backgroundColor: 'green',
+                        borderColor: 'green',
+                        fill: false,
+                        data: bdrecovered,
+                    }
+
+                ]
+            },
+
+            // Configuration options
+            options: {
+                responsive: true,
+                layout: {
+                    padding: 10,
+                },
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'তারিখ অনুসারে করোনা ভাইরাস কোভিড-১৯ বিশ্বব্যাপী বিভিন্ন কেস বিশ্লেষণ '
+                },
+                "animation": {
+                    "duration": 1,
+                    "onComplete": function() {
+                        var chartInstance = this.chart,
+                            ctx = chartInstance.ctx;
+
+                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+
+                        this.data.datasets.forEach(function(dataset, i) {
+                            var meta = chartInstance.controller.getDatasetMeta(i);
+                            meta.data.forEach(function(bar, index) {
+                                var data = dataset.data[index];
+                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+
+                            });
+                        });
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'আক্রান্ত ব্যাক্তি'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'তারিখ'
+                        }
+                    }]
+                }
+            }
+        });
+
+
 
 
 

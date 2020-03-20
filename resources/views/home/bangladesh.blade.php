@@ -3,35 +3,30 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
+        <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-primary text-light rounded">
                 <div class="card-body text-center">
-                    <h4>{{$summary[0]->confirmed}}</h4>
-                    <p>Total Confirmed</p>
+                    <h3>{{en2bn($summary[0]->confirmed)}}</h3>
+                    <h4>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h4>
+                    <br>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
+        <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-danger text-light rounded">
                 <div class="card-body text-center">
-                    <h4>{{$summary[0]->deaths}}</h4>
-                    <p>Total Deaths</p>
+                    <h3>{{en2bn($summary[0]->deaths)}}</h3>
+                    <h4>সর্বমোট মৃতের সংখ্যা</h4>
+                    <br>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
+        <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
                 <div class="card-body text-center">
-                    <h4>{{$summary[0]->recovered}}</h4>
-                    <p>Total Recovered</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-light shadow p-3 mb-5 bg-white rounded">
-                <div class="card-body text-center">
-                    <h4>0</h4>
-                    <p>Total Country/Region</p>
+                    <h3>{{en2bn($summary[0]->recovered)}}</h3>
+                    <h5>সর্বমোট আরোগ্য লাভকারী রোগীর সংখ্যা</h5>
+                    <br>
                 </div>
             </div>
         </div>
