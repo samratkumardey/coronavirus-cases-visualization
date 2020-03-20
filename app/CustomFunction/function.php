@@ -316,7 +316,7 @@ if (!function_exists('txten2bn')) {
             "Jordan",
             "Kazakhstan",
             "Kenya",
-            "Korea South",
+            "Korea, South",
             "Kosovo",
             "Kuwait",
             "Kyrgyzstan",

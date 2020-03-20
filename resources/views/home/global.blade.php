@@ -53,25 +53,25 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-primary text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn($summary[0]->confirmed)}}</h3>
-                <h4>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h4>
-                <br>
+                <h5>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h5>
+
             </div>
         </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-danger text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn($summary[0]->deaths)}}</h3>
-                <h4>সর্বমোট মৃতের সংখ্যা</h4>
-                <br>
+                <h5>সর্বমোট মৃত রোগীর সংখ্যা</h5>
+
             </div>
         </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-success text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->recovered)}}</h3>
@@ -79,7 +79,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
+            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
+                <div class="card-body text-center">
+                    <h3>{{en2bn($summary[0]->confirmed - ($summary[0]->deaths+$summary[0]->recovered))}}</h3>
+                    <h5>সর্বমোট সক্রিয় রোগীর সংখ্যা</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn(count($countries))}}</h3>
@@ -87,23 +95,35 @@
             </div>
         </div>
         </div>
+        <div class="col-md-2">
+            <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
+            <div class="card-body text-center">
+                <h5>{{en2bn(\Carbon\Carbon::parse($lastupdate->updated_at)->format('h:m'))}}</h5>
+                <h5>{{en2bn(\Carbon\Carbon::createFromFormat('m-d-Y', $lastupdate->batch)->format('d-m-y'))}}</h5>
+                <h5>সর্বশেষ আপডেট </h5>
+            </div>
+        </div>
+        </div>
     </div>
 
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div id="map" style="width: 100%; height: 530px;"></div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#home">আক্রান্ত রোগী</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu1">মৃত</a>
+                    <a class="nav-link" data-toggle="tab" href="#menu1">মৃত রোগী </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#menu2">আরোগ্য লাভকারী</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu3"> সক্রিয় রোগী </a>
                 </li>
             </ul>
 
@@ -131,6 +151,14 @@
                     @foreach($data as $tab)
                         <div class="card bg-success text-light" style="margin-bottom: 2px;">
                             <div class="card-body">{{txten2bn($tab->country)}} : <b>{{en2bn($tab->recovered)}}</b></div>
+                        </div>
+                    @endforeach
+                </div>
+                <div id="menu3" class="container tab-pane fade" style="overflow: scroll; height: 500px"><br>
+
+                    @foreach($data as $tab)
+                        <div class="card bg-info text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">{{txten2bn($tab->country)}} : <b>{{en2bn($tab->confirmed-($tab->deaths+$tab->recovered))}}</b></div>
                         </div>
                     @endforeach
                 </div>
