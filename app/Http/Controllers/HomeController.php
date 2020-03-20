@@ -10,23 +10,35 @@ class HomeController extends Controller
 {
     public function index(){
         $countries = Covid::distinct()->pluck('country');
-        $data = Covid::selectRaw('country, sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->groupBy('country')->orderBy('confirmed', 'DESC')->get();
+        $today = Carbon::today()->format('m-d-Y');
+        $yesterday = Carbon::yesterday()->format('m-d-Y');
 
-        $dates = Covid::groupBy('batch')->pluck('batch');
+        $data = Covid::selectRaw('country, sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->groupBy('country')->orderBy('confirmed', 'DESC')->whereIn('batch', [$yesterday, $today])->limit(9)->get();
+        $othersdata = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->whereNotIn('country', ['China', 'Italy', 'Iran', 'Spain', 'Germany', 'US', 'France', 'Korea, South', 'Switzerland'])->whereIn('batch', [$yesterday, $today])->get();
+
+        $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->whereIn('batch', [$yesterday, $today])->get();
+
+        $bymaps = Covid::whereIn('batch', [$yesterday, $today])->select('latitude', 'longitude', 'confirmed')->get();
+//        return $bymaps;
+
+
+//        return $othersdata;
+
+//        return view('layouts.master');
+        return view('home.global', compact('data', 'summary', 'countries', 'othersdata', 'bymaps'));
+
+    }
+
+    public function bd(){
+        $today = Carbon::today()->format('m-d-Y');
+        $yesterday = Carbon::yesterday()->format('m-d-Y');
+
+        $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->where('country', 'Bangladesh')->whereIn('batch', [$yesterday, $today])->get();
 
         $bd = Covid::where('country', 'Bangladesh')->get();
 
-        foreach ($dates as $date){
-            $newDate = Carbon::createFromFormat('m-d-Y',$date);
-//            return $newDate->monthName;
-        }
 
-
-
-
-//        return $bd;
-
-        return view('home.index', compact('data', 'bd'));
-
+//        return view('layouts.master');
+        return view('home.bangladesh', compact( 'summary','bd'));
     }
 }

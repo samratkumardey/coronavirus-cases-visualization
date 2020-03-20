@@ -12,5 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/bd', 'HomeController@bd');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
