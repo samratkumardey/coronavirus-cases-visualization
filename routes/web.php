@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('data-import/{date}', 'AutomationController@importData');
+Route::get('data-import/{date}', 'AutomationController@importsData');

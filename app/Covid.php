@@ -14,6 +14,8 @@ class Covid extends Model
         'confirmed',
         'deaths',
         'recovered',
+        'latitude',
+        'longitude',
         'batch'
     ];
 }

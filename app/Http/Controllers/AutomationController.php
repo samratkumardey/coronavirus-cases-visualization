@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AutomationController extends Controller
 {
-    public function importData($date){
+    public function importsData($date){
 
         // Import CSV to Database
         $filepath = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/".$date.".csv";
@@ -43,6 +43,8 @@ class AutomationController extends Controller
                 "confirmed"=>$this->null_check($importData[3]),
                 "deaths"=>$this->null_check($importData[4]),
                 "recovered"=>$this->null_check($importData[5]),
+                "latitude"=>$this->null_check($importData[6]),
+                "longitude"=>$this->null_check($importData[7]),
                 "batch"=>$date
             );
 
