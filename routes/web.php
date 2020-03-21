@@ -11,7 +11,12 @@
 |
 */
 
+Route::get('/admin', 'AdminController@index');
 Route::get('/', 'HomeController@index');
 Route::get('/bd', 'HomeController@bd');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
