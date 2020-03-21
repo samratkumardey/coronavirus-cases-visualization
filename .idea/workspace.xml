@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66a95a6e-3301-41f1-b6b5-c6708350f2b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/covid/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/covid/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/covid/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/alert.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/covid.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/covid.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/bd/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/bd/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/bd/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/covid/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/covid/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,11 +128,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/covid" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/bd" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\bd" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\covid" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\layouts" />
       <recent name="G:\webs\htdocs\project\covid19\covid\public\screenshots" />
@@ -161,7 +157,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584653913131</updated>
       <workItem from="1584653917400" duration="41333000" />
-      <workItem from="1584773514717" duration="13541000" />
+      <workItem from="1584773514717" duration="15669000" />
     </task>
     <servers />
   </component>
@@ -173,13 +169,13 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="105" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1584773387358" />
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584819765122">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584821665018">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1584819765122" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1584815650018">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1584821665018" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1584820821894">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1584815650018" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1584820821894" />
   </component>
 </project>
