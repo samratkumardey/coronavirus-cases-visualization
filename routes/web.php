@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/admin', 'AdminController@index');
+//Public Data
 Route::get('/', 'HomeController@index');
 Route::get('/bd', 'HomeController@bd');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Admin Data
+Route::resource('bdcovids', 'CovidDataController');
