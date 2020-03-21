@@ -41,13 +41,15 @@ class HomeController extends Controller
 
         $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->where('country', 'Bangladesh')->where('batch', '=', $lastupdate->batch)->get();
 
-        $bddata = BangladeshCovid::where('id', 'DESC')->first();
+        $current = BangladeshCovid::orderBy('id', 'DESC')->first();
+        $past = BangladeshCovid::whereDate('updated_at', '<', Carbon::now()->subHour(24))->orderBy('id', 'DESC')->first();
+
 
         $bd = Covid::where('country', 'Bangladesh')->get();
 
 
 
 //        return view('layouts.master');
-        return view('home.bangladesh', compact( 'summary','bd', 'lastupdate'));
+        return view('home.bangladesh', compact( 'summary','bd', 'lastupdate', 'current', 'past'));
     }
 }
