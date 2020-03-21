@@ -21,5 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Admin Data
+Route::get('admin', 'AdminController@index');
 Route::resource('bdcovids', 'CovidDataController');
 Route::resource('bddata', 'BangladeshController');

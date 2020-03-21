@@ -75,7 +75,7 @@
             <div class="card shadow p-3 mb-5 bg-success text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->recovered)}}</h3>
-                    <h5>সর্বমোট আরোগ্য লাভকারী রোগীর সংখ্যা</h5>
+                    <h5>সর্বমোট সুস্থ রোগীর সংখ্যা</h5>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
             <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn(count($countries))}}</h3>
-                <h5>বিশ্বব্যাপী সর্বমোট আক্রান্ত দেশের সংখ্যা</h5>
+                <h5>সর্বমোট আক্রান্ত দেশের সংখ্যা</h5>
             </div>
         </div>
         </div>
