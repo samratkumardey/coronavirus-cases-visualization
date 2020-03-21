@@ -3,11 +3,13 @@
 First time in Bangladesh COVID-19 Coronavirus Cases Visualization in Bengali. Confirmed Cases and Deaths by Country, Territory, or Conveyance in Bengali Language.
 
 ## Some screenshots
-![GitHub Logo](/public/screenshots/Screenshot_61.png)
+![Coronavirus Cases](/public/screenshots/Screenshot_64.png)
 
-![GitHub Logo](/public/screenshots/Screenshot_62.png)
+![Coronavirus Cases](/public/screenshots/Screenshot_61.png)
 
-![GitHub Logo](/public/screenshots/Screenshot_63.png)
+![Coronavirus Cases](/public/screenshots/Screenshot_62.png)
+
+![Coronavirus Cases](/public/screenshots/Screenshot_63.png)
 
 
 ## Data Sources

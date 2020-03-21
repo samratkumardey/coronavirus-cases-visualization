@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66a95a6e-3301-41f1-b6b5-c6708350f2b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/bangladesh.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/bangladesh.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/screenshots/Screenshot_64.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,15 +124,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/bd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/screenshots" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\webs\htdocs\project\covid19\covid\public\screenshots" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\bd" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\covid" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\layouts" />
-      <recent name="G:\webs\htdocs\project\covid19\covid\public\screenshots" />
       <recent name="G:\webs\htdocs\project\covid19\covid\app" />
     </key>
   </component>
@@ -154,7 +153,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584653913131</updated>
       <workItem from="1584653917400" duration="41333000" />
-      <workItem from="1584773514717" duration="21593000" />
+      <workItem from="1584773514717" duration="21786000" />
     </task>
     <servers />
   </component>
