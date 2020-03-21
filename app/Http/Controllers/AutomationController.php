@@ -11,6 +11,7 @@ class AutomationController extends Controller
 
         // Import CSV to Database
         $filepath = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/".$date.".csv";
+//        $filepath = "D:/shefa/".$date.".csv";
 
         // Reading file
         $file = fopen($filepath,"r");

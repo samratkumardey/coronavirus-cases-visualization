@@ -9,23 +9,24 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $countries = Covid::distinct()->pluck('country');
-//        return $countries;
         $today = Carbon::today()->format('m-d-Y');
         $yesterday = Carbon::yesterday()->format('m-d-Y');
 
-        $data = Covid::selectRaw('country, sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->groupBy('country')->orderBy('confirmed', 'DESC')->whereIn('batch', [$yesterday, $today])->get();
+        $countries = Covid::distinct()->where('batch', $yesterday)->pluck('country');
+//        return $countries;
+
+        $data = Covid::selectRaw('country, sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->groupBy('country')->orderBy('confirmed', 'DESC')->where('batch', $yesterday)->get();
 
 
         $databydates = Covid::selectRaw('batch, sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->groupBy('batch')->orderBy('updated_at', 'ASC')->get();
 
 //        return $databydates;
 
-        $othersdata = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->whereNotIn('country', ['China', 'Italy', 'Iran', 'Spain', 'Germany', 'US', 'France', 'Korea, South', 'Switzerland'])->whereIn('batch', [$yesterday, $today])->get();
+        $othersdata = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->whereNotIn('country', ['China', 'Italy', 'Iran', 'Spain', 'Germany', 'US', 'France', 'Korea, South', 'Switzerland'])->where('batch', $yesterday)->get();
 
-        $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->whereIn('batch', [$yesterday, $today])->get();
+        $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->where('batch', $yesterday)->get();
 
-        $bymaps = Covid::whereIn('batch', [$yesterday, $today])->select('latitude', 'longitude', 'confirmed')->get();
+        $bymaps = Covid::where('batch', $yesterday)->select('latitude', 'longitude', 'confirmed')->get();
         $lastupdate = Covid::select('batch', 'updated_at')->orderBy('updated_at', 'DESC')->first();
 
         return view('home.global', compact('data', 'summary', 'countries', 'othersdata', 'bymaps', 'databydates', 'lastupdate'));
@@ -39,9 +40,10 @@ class HomeController extends Controller
         $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->where('country', 'Bangladesh')->whereIn('batch', [$yesterday, $today])->get();
 
         $bd = Covid::where('country', 'Bangladesh')->get();
+        $lastupdate = Covid::select('batch', 'updated_at')->orderBy('updated_at', 'DESC')->first();
 
 
 //        return view('layouts.master');
-        return view('home.bangladesh', compact( 'summary','bd'));
+        return view('home.bangladesh', compact( 'summary','bd', 'lastupdate'));
     }
 }

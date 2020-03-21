@@ -3,30 +3,46 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-primary text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->confirmed)}}</h3>
-                    <h4>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h4>
-                    <br>
+                    <h5>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h5>
+
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-danger text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->deaths)}}</h3>
-                    <h4>সর্বমোট মৃতের সংখ্যা</h4>
-                    <br>
+                    <h5>সর্বমোট মৃত রোগীর সংখ্যা</h5>
+
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="card shadow p-3 mb-5 bg-success text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->recovered)}}</h3>
                     <h5>সর্বমোট আরোগ্য লাভকারী রোগীর সংখ্যা</h5>
-                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
+                <div class="card-body text-center">
+                    <h3>{{en2bn($summary[0]->confirmed - ($summary[0]->deaths+$summary[0]->recovered))}}</h3>
+                    <h5>সর্বমোট সক্রিয় রোগীর সংখ্যা</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
+                <div class="card-body text-center">
+                    <h5>{{en2bn(\Carbon\Carbon::parse($lastupdate->updated_at)->format('h:m'))}}</h5>
+                    <h5>{{en2bn(\Carbon\Carbon::createFromFormat('m-d-Y', $lastupdate->batch)->format('d-m-y'))}}</h5>
+                    <h5>সর্বশেষ আপডেট </h5>
                 </div>
             </div>
         </div>
