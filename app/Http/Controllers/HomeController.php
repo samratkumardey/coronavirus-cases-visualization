@@ -52,4 +52,12 @@ class HomeController extends Controller
 //        return view('layouts.master');
         return view('home.bangladesh', compact( 'summary','bd', 'lastupdate', 'current', 'past'));
     }
+
+
+    public function info(){
+        return view('home.info');
+    }
+    public function map(){
+        return view('home.map');
+    }
 }

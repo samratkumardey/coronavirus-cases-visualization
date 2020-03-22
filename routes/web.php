@@ -14,6 +14,8 @@
 //Public Data
 Route::get('/', 'HomeController@index');
 Route::get('/bd', 'HomeController@bd');
+Route::get('/info', 'HomeController@info');
+Route::get('/map', 'HomeController@map');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
 Auth::routes();

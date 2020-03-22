@@ -33,10 +33,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/bd')}}">বাংলাদেশ</a>
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="#">Link</a>--}}
-{{--            </li>--}}
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('info')}}">নির্দেশনা ও করণীয়</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('map')}}"> ম্যাপ </a>
+            </li>
 
         </ul>
     </div>
@@ -46,19 +49,22 @@
 
         @yield('content')
 
-</div>
-<br>
-<div class="row">
-    <div class="col-md-12 text-center">
-        <p>ডাটা সোর্সঃ WHO, CDC, ECDC, NHC, DXY, 1point3acres, Worldometers.info, BNO, state and national government health department, Johns Hopkins University Dataset, and local media reports</p>
-        <p>বাংলাদেশ ডাটা সোর্সঃ IEDCR, DGHS, health ministry of BD, and local media reports</p>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <p>ডাটা সোর্সঃ WHO, CDC, ECDC, NHC, DXY, 1point3acres, Worldometers.info, BNO, state and national government health department, Johns Hopkins University Dataset, and local media reports</p>
+            <p>বাংলাদেশ ডাটা সোর্সঃ IEDCR, DGHS, health ministry of BD, and local media reports</p>
+            <p class="text-success"><b>এটি গণসচেতনতার লক্ষ্যে স্বেচ্ছাসেবামূলক একটি কাজ। এখানে ব্যবহৃত সকল কনটেন্ট সবার জন্য উন্মুক্ত।</b></p>
+        </div>
     </div>
+
+    <div class="footer bg-dark text-center text-white" style="margin-bottom:0; height: 40px;">
+        <p style="padding: 5px">সার্বিক তত্ত্বাবধানেঃ <a href="https://samratdey.me/" class="text-white">সম্রাট কুমার দে</a>, সহকারী অধ্যাপক, সি এস ই বিভাগ, ঢাকা ইন্টারন্যাশনাল ইউনিভার্সিটি।
+            <a href="https://www.ariful.net/" class="text-white">মোঃ আরিফুল ইসলাম</a> , সি ই ও, <a href="https://www.pigeon-soft.com/" class="text-white">পিজন সফট</a>, বাংলাদেশ</p>
+
 </div>
 
-<div class="footer bg-dark text-center text-white" style="margin-bottom:0; height: 40px;">
-    <p style="padding: 5px">সার্বিক তত্ত্বাবধানেঃ <a href="https://samratdey.me/" class="text-white">সম্রাট কুমার দে</a>, সহকারী অধ্যাপক, সি এস ই বিভাগ, ঢাকা ইন্টারন্যাশনাল ইউনিভার্সিটি।
-        <a href="https://www.ariful.net/" class="text-white">মোঃ আরিফুল ইসলাম</a> , সি ই ও, <a href="https://www.pigeon-soft.com/" class="text-white">পিজন সফট</a>, বাংলাদেশ</p>
-</div>
+{{--</div>--}}
 
 @yield('js')
 
