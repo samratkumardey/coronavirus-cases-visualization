@@ -40,6 +40,8 @@
            <div class="row form-group">
                <div class="col-md-4">
                    {{ Form::hidden('last_update', \Carbon\Carbon::now()) }}
+                   {{ Form::hidden('latitude', '23.6850') }}
+                   {{ Form::hidden('longitude', '90.3563') }}
                </div>
                <div class="col-md-8">
                    {{ Form::reset('Clear', array('class'=> 'btn btn-warning')) }}
