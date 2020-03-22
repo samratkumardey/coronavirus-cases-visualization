@@ -16,6 +16,42 @@
             src: url("https://fonts.maateen.me/solaiman-lipi/font.css");
 
         }
+        w150 {
+            min-width: 150px;
+        }
+
+        .mt20 {
+            margin-top: 20px;
+        }
+
+        .blink {
+            animation: fader 1s infinite;
+            -webkit-animation: fader 1s infinite;
+        }
+
+        @keyframes fader {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fader {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 
     @yield('head-js')
@@ -28,17 +64,17 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">বিশ্বব্যাপী</a>
+            <li class="nav-item" style="margin-right: 3px">
+                <a class="nav-link btn btn-light text-dark" href="{{url('/')}}">বিশ্বব্যাপী</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/bd')}}">বাংলাদেশ</a>
+            <li class="nav-item" style="margin-right: 3px">
+                <a class="nav-link btn btn-success text-light" href="{{url('/bd')}}">বাংলাদেশ</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('info')}}">নির্দেশনা ও করণীয়</a>
+            <li class="nav-item" style="margin-right: 3px">
+                <a class="nav-link btn btn-light text-dark" href="{{url('info')}}">নির্দেশনা ও করণীয়</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('map')}}"> ম্যাপ </a>
+            <li class="nav-item" style="margin-right: 3px">
+                <a class="nav-link btn btn-danger blink w150 text-light" href="{{url('map')}}" > লাইভ ম্যাপ </a>
             </li>
 
         </ul>
@@ -51,11 +87,17 @@
 
 
     <div class="row">
+
         <div class="col-md-12 text-center">
             <p>ডাটা সোর্সঃ WHO, CDC, ECDC, NHC, DXY, 1point3acres, Worldometers.info, BNO, state and national government health department, Johns Hopkins University Dataset, and local media reports</p>
             <p>বাংলাদেশ ডাটা সোর্সঃ IEDCR, DGHS, health ministry of BD, and local media reports</p>
             <p class="text-success"><b>এটি গণসচেতনতার লক্ষ্যে স্বেচ্ছাসেবামূলক একটি কাজ। এখানে ব্যবহৃত সকল কনটেন্ট সবার জন্য উন্মুক্ত।</b></p>
+            <p>কারিগরি সহযোগিতায়</p>
+            <img src="{{asset('images/Dhaka_International_University.png')}}" alt="Dhaka International University" height="50px" width="100px">
+            <img src="{{asset('images/pigeon-logo.png')}}" alt="Dhaka International University" height="50px" width="100px">
         </div>
+
+
     </div>
 
     <div class="footer bg-dark text-center text-white" style="margin-bottom:0; height: 40px;">

@@ -57,7 +57,7 @@
             <div class="card shadow p-3 mb-5 bg-primary text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn($summary[0]->confirmed)}}</h3>
-                <h5>সর্বমোট নিশ্চিত রোগীর সংখ্যা</h5>
+                <h5>সর্বমোট আক্রান্তের সংখ্যা </h5>
 
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="card shadow p-3 mb-5 bg-danger text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn($summary[0]->deaths)}}</h3>
-                <h5>সর্বমোট মৃত রোগীর সংখ্যা</h5>
+                <h5> সর্বমোট মৃতের সংখ্যা</h5>
 
             </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="card shadow p-3 mb-5 bg-success text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->recovered)}}</h3>
-                    <h5>সর্বমোট সুস্থ রোগীর সংখ্যা</h5>
+                    <h5>সর্বমোট আরোগ্য লাভকারী</h5>
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
             <div class="card shadow p-3 mb-5 bg-info text-light rounded">
                 <div class="card-body text-center">
                     <h3>{{en2bn($summary[0]->confirmed - ($summary[0]->deaths+$summary[0]->recovered))}}</h3>
-                    <h5>সর্বমোট সক্রিয় রোগীর সংখ্যা</h5>
+                    <h5>সর্বমোট সক্রিয় রোগী</h5>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
             <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
             <div class="card-body text-center">
                 <h3>{{en2bn(count($countries))}}</h3>
-                <h5>সর্বমোট আক্রান্ত দেশের সংখ্যা</h5>
+                <h5>সর্বমোট আক্রান্ত দেশ</h5>
             </div>
         </div>
         </div>
@@ -117,7 +117,7 @@
                     <a class="nav-link active" data-toggle="tab" href="#home">আক্রান্ত রোগী</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu1">মৃত রোগী </a>
+                    <a class="nav-link" data-toggle="tab" href="#menu1">মৃত </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#menu2">আরোগ্য লাভকারী</a>
