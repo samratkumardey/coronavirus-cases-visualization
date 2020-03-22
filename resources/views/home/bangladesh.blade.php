@@ -1,5 +1,53 @@
 <!-- Created by Ariful Islam at 03/20/2020 - 5:00 PM -->
 @extends('layouts.master')
+@section('head-js')
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.6/dist/leaflet.markercluster.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.6/dist/MarkerCluster.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.6/dist/MarkerCluster.Default.css"/>
+    <script type="text/javascript">
+        window.onload = function() {
+
+            L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';
+            var baseLayer = L.mapquest.tileLayer('map');
+
+            var map = L.mapquest.map('map', {
+                center: L.latLng(23.7805733, 90.2792399),
+                layers: baseLayer,
+                zoom: 10
+            });
+            var addressPoints = [];
+            var confirmed = {!! $summary[0]->confirmed !!};
+            {{--var mymapsdata = {!! $bymaps !!};--}}
+            {{--for(var i=0; i<mymapsdata.length; i++){--}}
+            {{--    var lat = parseFloat(mymapsdata[i].latitude);--}}
+            {{--    var lon = parseFloat(mymapsdata[i].longitude);--}}
+            {{--    var mydata=[lat, lon, "Confirmed: "+mymapsdata[i].confirmed];--}}
+            {{--    //console.log(mydata);--}}
+            {{--    addressPoints.push(mydata);--}}
+            {{--}--}}
+            var mydata=[23.7805733, 90.2792399, "Confirmed: "+confirmed];
+            addressPoints.push(mydata);
+
+
+            var markers = L.markerClusterGroup();
+
+            for (var i = 0; i < addressPoints.length; i++) {
+                var addressPoint = addressPoints[i];
+                var title = addressPoint[2];
+                var marker = L.marker(new L.LatLng(addressPoint[0], addressPoint[1]), {
+                    title: title,
+                    icon: L.mapquest.icons.marker()
+                });
+                marker.bindPopup(title);
+                markers.addLayer(marker);
+            }
+
+            map.addLayer(markers);
+        }
+    </script>
+    @endsection
 @section('content')
 
     <div class="row">
@@ -96,114 +144,180 @@
         </div>
     </div>
 
+{{--    <div class="row">--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-info text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->home_quarantine-$past->home_quarantine)}}</h3>--}}
+{{--                    <h5> গত ২৪ ঘন্টায় হোম কোয়ারেন্টাইন </h5>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-success text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->home_quarantine_release-$past->home_quarantine_release)}}</h3>--}}
+{{--                    <h5> গত ২৪ ঘন্টায় হোম কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-info text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->govt_quarantine-$past->govt_quarantine)}}</h3>--}}
+{{--                    <h5> গত ২৪ ঘন্টায় অন্যান্য কোয়ারেন্টাইন </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-success text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->govt_quarantine_release-$past->govt_quarantine_release)}}</h3>--}}
+{{--                    <h5> গত ২৪ ঘন্টায় অন্যান্য কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-info text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn(($current->home_quarantine-$past->home_quarantine)+($current->govt_quarantine-$past->govt_quarantine))}}</h3>--}}
+{{--                    <h5> গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-success text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn(($current->home_quarantine_release-$past->home_quarantine_release)+($current->govt_quarantine_release-$past->govt_quarantine_release))}}</h3>--}}
+{{--                    <h5> গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--    </div>--}}
+
+{{--    <div class="row">--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-info text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->home_quarantine)}}</h3>--}}
+{{--                    <h5> সর্বমোট হোম কোয়ারেন্টাইন </h5>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-success text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->home_quarantine_release)}}</h3>--}}
+{{--                    <h5> সর্বমোট হোম কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-info text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->govt_quarantine)}}</h3>--}}
+{{--                    <h5> সর্বমোট অন্যান্য কোয়ারেন্টাইন </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-success text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->govt_quarantine_release)}}</h3>--}}
+{{--                    <h5> সর্বমোট ঘন্টায় অন্যান্য কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-info text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->home_quarantine+$current->govt_quarantine)}}</h3>--}}
+{{--                    <h5> মোট কোয়ারেন্টাইন </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <div class="card shadow p-3 mb-5 bg-success text-light rounded">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    <h3>{{en2bn($current->home_quarantine_release+$current->govt_quarantine_release)}}</h3>--}}
+{{--                    <h5> মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--    </div>--}}
+
     <div class="row">
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->home_quarantine-$past->home_quarantine)}}</h3>
-                    <h5> গত ২৪ ঘন্টায় হোম কোয়ারেন্টাইন </h5>
+        <div class="col-md-8">
+            <div id="map" style="width: 100%; height: 530px;"></div>
+        </div>
+        <div class="col-md-4">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home"> গত ২৪ ঘন্টার তথ্য </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1"> সর্বমোট তথ্য </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active" ><br>
+
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় হোম কোয়ারেন্টাইন : <b>{{en2bn($current->home_quarantine-$past->home_quarantine)}}</b></div>
+                        </div>
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় হোম কোয়ারেন্টাইন ছাড়প্রাপ্ত: <b>{{en2bn($current->home_quarantine_release-$past->home_quarantine_release)}}</b></div>
+                        </div>
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় অন্যান্য কোয়ারেন্টাইন : <b>{{en2bn($current->govt_quarantine-$past->govt_quarantine)}}</b></div>
+                        </div>
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় অন্যান্য কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn($current->govt_quarantine_release-$past->govt_quarantine_release)}}</b></div>
+                        </div>
+
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন : <b>{{en2bn(($current->home_quarantine-$past->home_quarantine)+($current->govt_quarantine-$past->govt_quarantine))}}</b></div>
+                        </div>
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn(($current->home_quarantine_release-$past->home_quarantine_release)+($current->govt_quarantine_release-$past->govt_quarantine_release))}}</b></div>
+                        </div>
+
+
+                </div>
+                <div id="menu1" class="container tab-pane fade" ><br>
+
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> সর্বমোট হোম কোয়ারেন্টাইন : <b>{{en2bn($current->home_quarantine)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> সর্বমোট হোম কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn($current->home_quarantine_release)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> সর্বমোট অন্যান্য কোয়ারেন্টাইন : <b>{{en2bn($current->govt_quarantine)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> সর্বমোট ঘন্টায় অন্যান্য কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn($current->govt_quarantine_release)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> মোট কোয়ারেন্টাইন : <b>{{en2bn($current->home_quarantine+$current->govt_quarantine)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn($current->home_quarantine_release+$current->govt_quarantine_release)}}</b></div>
+                        </div>
 
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->home_quarantine_release-$past->home_quarantine_release)}}</h3>
-                    <h5> গত ২৪ ঘন্টায় হোম কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->govt_quarantine-$past->govt_quarantine)}}</h3>
-                    <h5> গত ২৪ ঘন্টায় অন্যান্য কোয়ারেন্টাইন </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->govt_quarantine_release-$past->govt_quarantine_release)}}</h3>
-                    <h5> গত ২৪ ঘন্টায় অন্যান্য কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn(($current->home_quarantine-$past->home_quarantine)+($current->govt_quarantine-$past->govt_quarantine))}}</h3>
-                    <h5> গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn(($current->home_quarantine_release-$past->home_quarantine_release)+($current->govt_quarantine_release-$past->govt_quarantine_release))}}</h3>
-                    <h5> গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>
-                </div>
-            </div>
-        </div>
-
     </div>
-
-    <div class="row">
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->home_quarantine)}}</h3>
-                    <h5> সর্বমোট হোম কোয়ারেন্টাইন </h5>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->home_quarantine_release)}}</h3>
-                    <h5> সর্বমোট হোম কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->govt_quarantine)}}</h3>
-                    <h5> সর্বমোট অন্যান্য কোয়ারেন্টাইন </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->govt_quarantine_release)}}</h3>
-                    <h5> সর্বমোট ঘন্টায় অন্যান্য কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-info text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->home_quarantine+$current->govt_quarantine)}}</h3>
-                    <h5> মোট কোয়ারেন্টাইন </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card shadow p-3 mb-5 bg-success text-light rounded">
-                <div class="card-body text-center">
-                    <h3>{{en2bn($current->home_quarantine_release+$current->govt_quarantine_release)}}</h3>
-                    <h5> মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত </h5>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
 
     <div class="row">
         <div class="col-md-12">
