@@ -42,7 +42,7 @@ class HomeController extends Controller
         $summary = Covid::select('confirmed', 'deaths', 'recovered')->where('country', 'Bangladesh')->orderBy('id', 'DESC')->limit(1)->get();
 
         $current = BangladeshCovid::orderBy('id', 'DESC')->first();
-        $past = BangladeshCovid::whereDate('updated_at', '<', Carbon::now()->subHour(24))->orderBy('id', 'DESC')->first();
+        $past = BangladeshCovid::where('id', $current->id-1)->first();
 
 
         $bd = Covid::where('country', 'Bangladesh')->get();
