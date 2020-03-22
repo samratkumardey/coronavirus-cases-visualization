@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function bd(){
         $lastupdate = Covid::select('batch', 'updated_at')->orderBy('updated_at', 'DESC')->first();
 
-        $summary = Covid::select('confirmed, deaths, recovered')->where('country', 'Bangladesh')->where('batch', '=', $lastupdate->batch)->get();
+        $summary = Covid::select('confirmed', 'deaths', 'recovered')->where('country', 'Bangladesh')->where('batch', '=', $lastupdate->batch)->get();
 
         $current = BangladeshCovid::orderBy('id', 'DESC')->first();
         $past = BangladeshCovid::whereDate('updated_at', '<', Carbon::now()->subHour(24))->orderBy('id', 'DESC')->first();
