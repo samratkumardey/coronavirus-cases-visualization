@@ -30,7 +30,7 @@ class HomeController extends Controller
         $summary = Covid::selectRaw('sum(confirmed) as confirmed, sum(deaths) as deaths, sum(recovered) as recovered')->where('batch', $lastupdate->batch)->get();
 
         $bymaps = Covid::where('batch', $lastupdate->batch)->select('latitude', 'longitude', 'confirmed')->get();
-        $lastupdate = Covid::select('batch', 'updated_at')->orderBy('updated_at', 'DESC')->first();
+//        $lastupdate = Covid::select('batch', 'updated_at')->orderBy('id', 'DESC')->first();
 
         return view('home.global', compact('data', 'summary', 'countries', 'othersdata', 'bymaps', 'databydates', 'lastupdate'));
 
