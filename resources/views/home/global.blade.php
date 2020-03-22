@@ -99,7 +99,7 @@
             <div class="card shadow p-3 mb-5 bg-dark text-light rounded">
             <div class="card-body text-center">
                 <h5>{{en2bn(\Carbon\Carbon::parse($lastupdate->updated_at)->format('h:m'))}}</h5>
-                <h5>{{en2bn(\Carbon\Carbon::createFromFormat('m-d-Y', $lastupdate->batch)->format('d-m-y'))}}</h5>
+                <h5>{{en2bn(\Carbon\Carbon::parse($lastupdate->updated_at)->format('d-m-y'))}}</h5>
                 <h5>সর্বশেষ আপডেট </h5>
             </div>
         </div>

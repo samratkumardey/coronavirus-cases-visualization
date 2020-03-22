@@ -64,7 +64,6 @@
         gtag('config', 'UA-44838571-8');
     </script>
 
-
     @yield('head-js')
 </head>
 <body>
