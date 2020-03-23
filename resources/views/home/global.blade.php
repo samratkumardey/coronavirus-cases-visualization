@@ -172,11 +172,11 @@
     </div>
     <br>
 
-    <div class="row">
-        <div class="col-md-12">
-            <canvas id="bdchart"  ></canvas>
-        </div>
-    </div>
+{{--    <div class="row">--}}
+{{--        <div class="col-md-12">--}}
+{{--            <canvas id="bdchart"  ></canvas>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 @endsection

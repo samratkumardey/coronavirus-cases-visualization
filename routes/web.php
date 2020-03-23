@@ -12,14 +12,14 @@
 */
 
 //Public Data
-Route::get('/', 'HomeController@index');
-Route::get('/bd', 'HomeController@bd');
+Route::get('/', 'HomeController@bd');
+Route::get('/world', 'HomeController@index');
 Route::get('/info', 'HomeController@info');
 Route::get('/map', 'HomeController@map');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@bd')->name('home');
 
 
 //Admin Data

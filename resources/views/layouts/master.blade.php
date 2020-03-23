@@ -75,10 +75,11 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item" style="margin-right: 3px">
-                <a class="nav-link btn btn-light text-dark" href="{{url('/')}}">বিশ্বব্যাপী</a>
+                <a class="nav-link btn btn-success text-light" href="{{url('/')}}">বাংলাদেশ</a>
             </li>
+
             <li class="nav-item" style="margin-right: 3px">
-                <a class="nav-link btn btn-success text-light" href="{{url('/bd')}}">বাংলাদেশ</a>
+                <a class="nav-link btn btn-light text-dark" href="{{url('/world')}}">বিশ্বব্যাপী</a>
             </li>
             <li class="nav-item" style="margin-right: 3px">
                 <a class="nav-link btn btn-light text-dark" href="{{url('info')}}">নির্দেশনা ও করণীয়</a>
