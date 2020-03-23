@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Auth::routes();
+Auth::routes(['register' => false, 'verify' => true]);
 
 //Public Data
 Route::get('/', 'HomeController@bd');
@@ -18,7 +20,6 @@ Route::get('/info', 'HomeController@info');
 Route::get('/map', 'HomeController@map');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
-Auth::routes();
 Route::get('/home', 'HomeController@bd')->name('home');
 
 
