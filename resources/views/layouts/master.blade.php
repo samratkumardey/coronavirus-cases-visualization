@@ -102,7 +102,7 @@
         <div class="col-md-12 text-center">
             <p>ডাটা সোর্সঃ WHO, CDC, ECDC, NHC, DXY, 1point3acres, Worldometers.info, BNO, state and national government health department, Johns Hopkins University Dataset, and local media reports</p>
             <p>বাংলাদেশ ডাটা সোর্সঃ IEDCR, DGHS, health ministry of BD, and local media reports</p>
-            <p class="text-success"><b>এটি গণসচেতনতার লক্ষ্যে স্বেচ্ছাসেবামূলক একটি কাজ। এখানে ব্যবহৃত সকল কনটেন্ট সবার জন্য উন্মুক্ত।</b></p>
+            <p class="text-success"><b>এটি একটি জনসচেতনতামূলক কাজ। যার তথ্য উপাত্ত বিভিন্ন গণমাধ্যম হতে সংগৃহীত। এখানকার সকল তথ্য সবার জন্য উন্মুক্ত।</b></p>
             <p>কারিগরি সহযোগিতায়</p>
             <img src="{{asset('images/Dhaka_International_University.png')}}" alt="Dhaka International University" height="50px" width="100px">
             <img src="{{asset('images/pigeon-logo.png')}}" alt="Dhaka International University" height="50px" width="100px">
