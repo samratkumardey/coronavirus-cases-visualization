@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66a95a6e-3301-41f1-b6b5-c6708350f2b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/static/icons/brightness-full.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/calender.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/chekbox.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/denger.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/heart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/info.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/right-arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/icons/users.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/caution.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/covid-19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/covid-19.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/symptoms-cough.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/symptoms-fever.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/symptoms-shortnessOfBreath.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/style/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/style/style.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/style/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/screenshots/Screenshot_61.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/screenshots/Screenshot_61.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/screenshots/Screenshot_63.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/screenshots/Screenshot_63.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/info.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,16 +144,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/screenshots" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\webs\htdocs\project\covid19\covid\public\static" />
       <recent name="G:\webs\htdocs\project\covid19\covid\public\screenshots" />
       <recent name="G:\webs\htdocs\project\covid19\covid\public\images" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\bd" />
       <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\covid" />
-      <recent name="G:\webs\htdocs\project\covid19\covid\resources\views\layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -162,7 +179,8 @@
       <workItem from="1584902518714" duration="2793000" />
       <workItem from="1584942194283" duration="3372000" />
       <workItem from="1584958212680" duration="4924000" />
-      <workItem from="1585009758964" duration="1652000" />
+      <workItem from="1585009758964" duration="2304000" />
+      <workItem from="1585218069513" duration="1680000" />
     </task>
     <servers />
   </component>
