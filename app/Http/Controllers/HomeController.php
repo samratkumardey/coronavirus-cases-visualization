@@ -48,8 +48,6 @@ class HomeController extends Controller
         $bd = Covid::where('country', 'Bangladesh')->get();
 
 
-
-//        return view('layouts.master');
         return view('home.bangladesh', compact( 'summary','bd', 'lastupdate', 'current', 'past'));
     }
 
