@@ -183,6 +183,14 @@
                             <div class="card-body">গত ২৪ ঘন্টায় মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn(($current->home_quarantine_release-$past->home_quarantine_release)+($current->govt_quarantine_release-$past->govt_quarantine_release))}}</b></div>
                         </div>
 
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় মোট আইসোলেশন : <b>{{en2bn($current->isolation-$past->isolation)}}</b></div>
+                        </div>
+
+                        <div class="card bg-primary text-light" style="margin-bottom: 2px;">
+                            <div class="card-body">গত ২৪ ঘন্টায় মোট আইসোলেশন ছাড়প্রাপ্ত : <b>{{en2bn($current->isolation_release-$past->isolation_release)}}</b></div>
+                        </div>
+
 
                 </div>
                 <div id="menu1" class="container tab-pane fade" ><br>
@@ -204,6 +212,12 @@
                         </div>
                         <div class="card bg-success text-light" style="margin-bottom: 2px;">
                             <div class="card-body"> মোট কোয়ারেন্টাইন ছাড়প্রাপ্ত : <b>{{en2bn($current->home_quarantine_release+$current->govt_quarantine_release)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> মোট আইসোলেশন : <b>{{en2bn($current->isolation)}}</b></div>
+                        </div>
+                        <div class="card bg-success text-light" style="margin-bottom: 2px;">
+                            <div class="card-body"> মোট আইসোলেশন ছাড়প্রাপ্ত : <b>{{en2bn($current->isolation_release)}}</b></div>
                         </div>
 
                 </div>
