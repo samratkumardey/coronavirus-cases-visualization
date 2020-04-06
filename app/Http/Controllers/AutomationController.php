@@ -10,7 +10,7 @@ class AutomationController extends Controller
     public function importsData($date){
 
         // Import CSV to Database
-        $filepath = "https://raw.githubusercontent.com/prodhan/COVID-19/master/mydata/".$date.".csv";
+        $filepath = "https://raw.githubusercontent.com/prodhan/coronavirus-cases-visualization/master/public/mydata/".$date.".csv";
 //        $filepath = "D:/shefa/".$date.".csv";
 
         // Reading file
