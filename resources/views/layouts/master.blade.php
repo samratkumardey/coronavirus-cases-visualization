@@ -90,6 +90,9 @@
             <li class="nav-item" style="margin-right: 3px">
                 <a class="nav-link btn btn-danger blink w150 text-light" href="{{url('map')}}" > লাইভ ম্যাপ </a>
             </li>
+            <li class="nav-item" style="margin-right: 3px">
+                <a class="nav-link btn btn-light text-dark" href="{{url('bdmap')}}" > BD Map </a>
+            </li>
 
         </ul>
     </div>

@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@bd');
 Route::get('/world', 'HomeController@index');
 Route::get('/info', 'HomeController@info');
 Route::get('/map', 'HomeController@map');
+Route::get('/bdmap', 'HomeController@bdmap');
 
 Route::get('data-import/{date}', 'AutomationController@importsData');
 Route::get('/home', 'HomeController@bd')->name('home');
