@@ -93,6 +93,9 @@
             <li class="nav-item" style="margin-right: 3px">
                 <a class="nav-link btn btn-light text-dark" href="{{url('bdmap')}}" > BD Map </a>
             </li>
+            <li class="nav-item" style="margin-right: 3px">
+                <a class="nav-link btn btn-light text-dark" href="{{url('analysis')}}" > Analysis </a>
+            </li>
 
         </ul>
     </div>

@@ -61,4 +61,7 @@ class HomeController extends Controller
     public function bdmap(){
         return view('home.bdmap');
     }
+    public function analysis(){
+        return view('home.analysis');
+    }
 }
