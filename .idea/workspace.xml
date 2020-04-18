@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66a95a6e-3301-41f1-b6b5-c6708350f2b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomationController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +167,7 @@
       <workItem from="1586152657559" duration="1112000" />
       <workItem from="1586190371365" duration="736000" />
       <workItem from="1586196983146" duration="857000" />
+      <workItem from="1587236193118" duration="89000" />
     </task>
     <servers />
   </component>
