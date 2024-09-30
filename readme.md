@@ -14,7 +14,7 @@ Global Data: WHO, CDC, ECDC, NHC, DXY, 1point3acres, Worldometers.info, BNO, sta
 BD Data: IEDCR, DGHS, health ministry of BD, and local media reports
 
 ## Developed and maintained by
-- [Samrat Kumar Dey](https://samratdey.me/) - Asst. Prof. Dhaka International University
+- [Samrat Kumar Dey](https://samratdey.me/) - Lecturer (CS). BOU & Former Asst. Prof.(CSE) Dhaka International University
 - [Ariful Islam](https://www.ariful.net/) - CEO, Pigeon Soft
 - [Pigeon Soft](https://www.pigeon-soft.com/)
 
